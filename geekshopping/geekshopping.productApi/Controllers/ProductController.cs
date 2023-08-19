@@ -39,7 +39,7 @@ namespace geekshopping.productApi.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<ProductDTO>> insert(ProductDTO dto)
+        public async Task<ActionResult<ProductDTO>> insert([FromBody] ProductDTO dto)
         {
             if(dto == null)
             {
