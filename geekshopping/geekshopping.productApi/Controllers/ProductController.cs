@@ -17,7 +17,7 @@ namespace geekshopping.productApi.Controllers
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
-        [HttpGet("/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult> FindById(long id)
         {
             var product = await _repository.FindById(id);
