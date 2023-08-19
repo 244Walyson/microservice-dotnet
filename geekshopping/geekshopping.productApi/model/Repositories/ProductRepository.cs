@@ -29,13 +29,15 @@ namespace geekshopping.productApi.model.Repositories
             try
             {
                 Product product = await _context.Products.Where(p => p.Id == id).FirstOrDefaultAsync();
-                if (product != null)
+                if (product == null)
                 {
-                    _context.Products.Remove(product);
-                    await _context.SaveChangesAsync();
-                    return true;
+                    return false;
                 }
-                return false;
+
+                _context.Products.Remove(product);
+                await _context.SaveChangesAsync();
+                return true;
+
             }
             catch (Exception)
             {
