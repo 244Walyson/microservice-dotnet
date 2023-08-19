@@ -59,7 +59,7 @@ namespace geekshopping.productApi.model.Repositories
         public async Task<ProductDTO> Update(ProductDTO dto)
         {
             Product product = _mapper.Map<Product>(dto);
-            _context.Products.Add(product);
+            _context.Products.Update(product);
             await _context.SaveChangesAsync();
             return _mapper.Map<ProductDTO>(product);
         }

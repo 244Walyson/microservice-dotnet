@@ -49,6 +49,14 @@ namespace geekshopping.productApi.Controllers
             return Ok(dto);
         }
 
+        [HttpPut]
+        public async Task<ActionResult<ProductDTO>> update(ProductDTO dto)
+        {
+            if (dto == null) return BadRequest();
+            dto = await _repository.Update(dto);
+            return Ok(dto);
+        }
+
         [HttpDelete("id")]
         public async Task<ActionResult> delete(long id)
         {
